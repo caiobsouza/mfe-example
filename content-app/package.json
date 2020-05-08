@@ -1,0 +1,19 @@
+{
+  "name": "content-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon content",
+    "composer": "npm run composer:kill && docker run --name reverse-app-composer -d -p 80:80 -v $PWD/nginx.conf:/etc/nginx/nginx.conf nginx",
+    "composer:kill": "(docker kill reverse-app-composer || true) && (docker rm reverse-app-composer || true)"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
